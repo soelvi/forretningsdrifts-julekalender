@@ -162,7 +162,7 @@ export default {
 /* Countdown under luker */
 .countdown-under {
   position: absolute;
-  bottom: 30px;
+  bottom: 50px;
   /* juster etter smak */
   width: 100%;
   text-align: center;
