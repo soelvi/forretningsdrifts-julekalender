@@ -19,7 +19,7 @@
   /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
   position: relative;
   overflow: visible;
-  font-family: 'Baskerville', sans-serif;
+  font-family: 'Georgia', sans-serif;
   min-height: 200px;
 }
 
