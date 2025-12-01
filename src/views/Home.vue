@@ -49,7 +49,7 @@ export default {
 
       luker: [
         { number: 1, subtitle: 'Velkommen til årets julekalender!', text: 'Vi starter desember med en emoji-quiz ✨ Gjett filmen!', images: ['/images/emoji/emoji1.png', '/images/emoji/emoji2.png', '/images/emoji/emoji3.png', '/images/emoji/emoji4.png', '/images/emoji/emoji5.png', '/images/emoji/emoji6.png', '/images/emoji/emoji7.png', '/images/emoji/emoji8.png', '/images/emoji/emoji9.png', '/images/emoji/emoji10.png', '/images/emoji/emoji11.png', '/images/emoji/emoji12.png', '/images/emoji/emoji13.png',] },
-        { number: 2, subtitle: 'Mitt skip er lastet med..', text: 'hhh', images: [] },
+        { number: 2, subtitle: 'Mitt skip er lastet med..', text: '', images: ['/images/skip/skip1.png', '/images/skip/skip2.png', '/images/skip/skip3.png', '/images/skip/skip4.png', '/images/skip/skip5.png',] }, 
         { number: 3, text: 'Fortell én ting du gleder deg til 😊', images: [] },
         { number: 4, text: 'Syng en julesang 🎶', images: [] },
         { number: 5, text: 'Tre ting du er takknemlig for 🙏', images: [] },

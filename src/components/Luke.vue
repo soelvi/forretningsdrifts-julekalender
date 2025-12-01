@@ -34,7 +34,7 @@ const isLocked = computed(() => {
 
   if (props.day === d) {
     if (h < 11) return true;
-    if (h === 11 && m < 30) return true;
+    if (h === 11 && m < 40) return true;
   }
 
   return false;
