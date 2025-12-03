@@ -121,7 +121,7 @@ function close() {
   position: fixed;
   inset: 0;
   background: #a57a5a48;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(3px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,7 +156,7 @@ function close() {
   margin-bottom: 0.2rem;
   font-size: 1.5rem;
   font-weight: 500;
-  color: #fff9e6cc;
+  color: var(--paper)
 }
 
 .close-btn {

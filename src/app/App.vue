@@ -1,19 +1,14 @@
 <template>
   <div id="app">
-    <!-- Snø som bakgrunn -->
-    <div class="snowflakes" aria-hidden="true">
-      <div
-        class="snowflake"
-        v-for="n in 50"
-        :key="n"
-        :style="generateSnowflakeStyle()"
-      >
-       <img src="/images/logo_hvit.svg" alt="" />
-      </div>
-    </div>
-
     <!-- Resten av appen -->
     <RouterView />
+
+    <!-- Snø som bakgrunn -->
+    <div class="snowflakes" aria-hidden="true">
+      <div class="snowflake" v-for="n in 50" :key="n" :style="generateSnowflakeStyle()">
+        <img src="/images/logo_hvit.svg" alt="" />
+      </div>
+    </div>
   </div>
 </template>
 

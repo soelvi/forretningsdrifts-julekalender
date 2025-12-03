@@ -27,28 +27,14 @@ export default {
 		return {
 			answers: [
 				{ day: 1, text: "Emoji-Quiz: 1. Snekker Andersen og julenissen / 2. Tre nøtter til Askepott / 3. Flåklypa Grand Prix / 4. Cast Away / 5. IT / 6. Snakes on a plane / 7. Ringenes Herre / 8. Ratatouille / 9. E.T: The Extra-Terrestrial / 10. Forrest Gump / 11. The Sixth Sense / 12. The Wolf of Wallstreet / 13. Hjemme Alene" },
-				{ day: 2, text: "" },
-				{ day: 3, text: "Rebeccas" },
-				{ day: 4, text: "" },
-				{ day: 5, text: "" },
-				{ day: 6, text: "" },
-				{ day: 7, text: "" },
-				{ day: 8, text: "Flagg" },
-				{ day: 9, text: "Du spiller først mot spiller A, som har hvite brikker — noe som betyr at han begynner. Han gjør sitt første trekk, men du venter med å svare. Du går i stedet til spiller B, som har svarte brikker — noe som betyr at det er du som skal åpne partiet. Der gjentar du A sitt trekk og venter til B har gjort sitt mottrekk. Så snart han har gjort det, gjentar du dette trekket mot A. Slik fortsetter du helt til spillene er avsluttet. Det geniale er at du ikke velger et eneste trekk selv, du har derimot sørget for at A og B faktisk spiller mot hverandre. Da blir resultatet nødvendigvis remis i begge partiene, med mindre du vinner mot en av dem. 🎄" },
-				{ day: 10, text: "Julekaos" },
-				{ day: 11, text: "" },
+				{ day: 3, text: "Rebeccas Quiz: 1. Flåklypa / 2. Lemen / 3. Builders bum / 4. Ane Dahl Torp / 5. Great rift valley / 6. Crack / 7. Brist " },
+				{ day: 8, text: "Flagg Quiz: 1. Barbados / 2. Tanzania / 3. Laos / 4. Mexico / 5. Frankrike / 6. Chile / 7. India / 8. Ghana / 9. Georgia / 10. Sør - Korea / 11. Færøyene / 12. Sri Lanka / 13. Nord - Makedonia" },
+				{ day: 9, text: "Vibekes nøtt: Du spiller først mot spiller A, som har hvite brikker — noe som betyr at han begynner. Han gjør sitt første trekk, men du venter med å svare. Du går i stedet til spiller B, som har svarte brikker — noe som betyr at det er du som skal åpne partiet. Der gjentar du A sitt trekk og venter til B har gjort sitt mottrekk. Så snart han har gjort det, gjentar du dette trekket mot A. Slik fortsetter du helt til spillene er avsluttet. Det geniale er at du ikke velger et eneste trekk selv, du har derimot sørget for at A og B faktisk spiller mot hverandre. Da blir resultatet nødvendigvis remis i begge partiene, med mindre du vinner mot en av dem. 🎄" },
+				{ day: 10, text: "Julekaos: 1. Gløgg / 2. Risengrynsgrøt / 3. Jomfru Maria / 4. Ribberull / 5. Juleevangeliet" },
 				{ day: 12, text: "Quiz" },
-				{ day: 13, text: "" },
-				{ day: 14, text: "" },
-				{ day: 15, text: "" },
-				{ day: 16, text: "" },
 				{ day: 17, text: "Quiz" },
-				{ day: 18, text: "Monikas" },
-				{ day: 19, text: "" },
-				{ day: 20, text: "" },
-				{ day: 21, text: "" },
-				{ day: 22, text: "" },
-				{ day: 23, text: "" },
+				{ day: 18, text: "Monikas rebus: 1. Produktutviklingsprosessen 2.0 / 2. Delprosessansvarlig" },
+				{ day: 19, text: "Logo Quiz: 1. Red Bull / 2. Nespresso / 3. Steam / 4. AirBnB / 5. Unilever / 6. Clas Ohlson / 7. Storebrand / 8. SoundCloud / 9. Versace / 10. Umbro / 11. Reebok / 12. Cadillac / 13. Maserati / 14. Nestlé / 15. Pringles / 16. DreamWorks / 17. FN / 18. Domino’s / 19. LG / 20. Batman / 21. Fjällräven / 22. Carhartt" },
 				{ day: 24, text: "GOD JUL 🎅🎄" },
 			]
 		}
@@ -116,7 +102,8 @@ export default {
 .svar-card {
 	width: min(95%, 900px);
 	padding: 1.5rem 2rem;
-	margin-bottom: 1.2rem;
+	margin: 0 auto 1.2rem;
+	/* ← Midtstiller perfekt */
 
 	background: rgba(255, 255, 255, 0.12);
 	backdrop-filter: blur(14px);

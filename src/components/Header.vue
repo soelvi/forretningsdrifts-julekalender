@@ -10,14 +10,24 @@
 </script>
 
 <style scoped>
+
 .julekalender-header {
   background: transparent;
   color: #F9F3E9;
   text-align: center;
   padding: 3rem 1rem;
   border-radius: 12px;
-  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); */
-  position: relative;
+  position: absolute;
+  /* ← viktig */
+  top: 6%;
+  /* juster etter smak */
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 40%;
+  /* ← match gridet */
+
   overflow: visible;
   font-family: 'Georgia', sans-serif;
   min-height: 200px;
