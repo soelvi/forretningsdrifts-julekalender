@@ -19,7 +19,7 @@
   border-radius: 12px;
   position: absolute;
   /* ← viktig */
-  top: 5%;
+  top: 4%;
   /* juster etter smak */
 
   left: 50%;
