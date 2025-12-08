@@ -34,7 +34,7 @@ export default {
 				{ day: 12, text: "Quiz" },
 				{ day: 17, text: "Quiz" },
 				{ day: 18, text: "Monikas rebus: 1. Produktutviklingsprosessen 2.0 / 2. Delprosessansvarlig" },
-				{ day: 19, text: "Logo Quiz: 1. Red Bull / 2. Nespresso / 3. Steam / 4. AirBnB / 5. Unilever / 6. Clas Ohlson / 7. Storebrand / 8. SoundCloud / 9. Versace / 10. Umbro / 11. Reebok / 12. Cadillac / 13. Maserati / 14. Nestlé / 15. Pringles / 16. DreamWorks / 17. FN / 18. Domino’s / 19. LG / 20. Batman / 21. Fjällräven / 22. Carhartt" },
+				{ day: 19, text: "Logo Quiz: 1. Carhartt / 2. Clas Ohlson / 3. Air BnB / 4. Nestlé / 5. DreamWorks /6. Cadillac / 7. Dominos / 8. Fjällräven / 9. Batman / 10. LG / 11. Maserati / 12. Nespresso / 13. RedBull / 14. Reebok / 15. SoundCloud / 16. Steam / 17. Storebrand / 18. Umbro / 19. Unilever / 20. Versace / 21. Adobe / 22. Pringles / 23. FN/UN" },
 				{ day: 24, text: "GOD JUL 🎅🎄" },
 			]
 		}
