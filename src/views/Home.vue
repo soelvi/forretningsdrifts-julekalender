@@ -19,7 +19,7 @@
 
     <!-- MODAL -->
     <Modal v-if="activeModalDay" :day="activeModalDay" :subtitle="activeSubtitle" :text="activeText"
-      :images="activeImages" @close="closeModal" />
+      :images="activeImages" :content="activeContent" @close="closeModal" />
 
   </div>
 
@@ -46,6 +46,8 @@ export default {
       activeText: '',
       activeImages: [],
       activeSubtitle: '',
+      activeContent: '',
+      
 
       luker: [
         { number: 1, subtitle: 'Velkommen til årets julekalender!', text: 'Vi starter desember med en emoji-quiz ✨ Gjett filmen!', images: ['/images/emoji/emoji1.png', '/images/emoji/emoji2.png', '/images/emoji/emoji3.png', '/images/emoji/emoji4.png', '/images/emoji/emoji5.png', '/images/emoji/emoji6.png', '/images/emoji/emoji7.png', '/images/emoji/emoji8.png', '/images/emoji/emoji9.png', '/images/emoji/emoji10.png', '/images/emoji/emoji11.png', '/images/emoji/emoji12.png', '/images/emoji/emoji13.png',] },
@@ -59,13 +61,26 @@ export default {
         { number: 9, subtitle: '💫 VIBEKEs JULENØTT 💫', text: 'Sjakkspillet: Strengt tatt er du ikke særlig god til å spille sjakk, du vet knapt nok hvordan brikkene flyttes. Likevel vil du garantert gjøre det meget godt i en miniturnering der du spiller simultant mot verdens to beste sjakkspillere: Du vil slå den ene eller spille remis, altså uavgjort, mot dem begge. Hvordan er det mulig?', images: [] },
         { number: 10, subtitle: 'FULLSTENDIG JULEKAOS', text: 'Stokk om bokstavene og finn juleordene som gjemmer seg!', images: ['/images/bokstavrot/bokstavrot1.png', '/images/bokstavrot/bokstavrot2.png', '/images/bokstavrot/bokstavrot3.png', '/images/bokstavrot/bokstavrot4.png', '/images/bokstavrot/bokstavrot5.png',] },
         { number: 11, subtitle: '🌍 GEOGUESSR! 🌍', text: 'i regi av Rolv Kristian aka Rolvo240 eller mr. Worldwide om du vil! ', images: [] },
-        { number: 12, text: 'Lag en kakao ☕️', images: [] },
-        { number: 13, text: 'Lag et julekort ❤️', images: [] },
-        { number: 14, text: 'Hør en julesang 🎵', images: [] },
-        { number: 15, subtitle: '⭐ Dagens utfordring: Si noe fint til en kollega ⭐', text: 'Spre litt ekstra glede – si noe hyggelig til en du jobber med!', images: [] },
+        {
+          number: 12, subtitle: 'GÅTE', text: 'Jeg er en gave du gir uten å pakke inn. Jeg varer ofte bare et øyeblikk. Hva er jeg?', images: [] },
+        { number: 13, subtitle: 'Kos deg litt ekstra i dag!', text: '', images: ['/images/kakao.png'] },
+        { number: 14, subtitle: '', text: '', images: ['/images/colin.png'] },
+        {
+          number: 15, subtitle: 'QUIZ', text: 'Hva husker du fra året 2025?', images: [
+            '/images/quiz/quiz.png',
+            '/images/quiz/quiz1.png',
+            '/images/quiz/quiz2.png',
+            '/images/quiz/quiz3.png',
+            '/images/quiz/quiz4.png',
+            '/images/quiz/quiz5.png',
+            '/images/quiz/quiz6.png',
+            '/images/quiz/quiz7.png',
+            '/images/quiz/quiz8.png',
+            '/images/quiz/quiz9.png'
+          ] },
         { number: 16, subtitle: 'YASSARs LUKE', text: 'Welcome to Whoville!', images: ['/images/luke16.png'] },
-        { number: 17, text: 'Meld noen du savner 💌', images: [] },
-        { number: 18, subtitle: 'MONIKAs REBUS', text: 'Finn noe mykt 🧣', images: [] },
+        { number: 17, subtitle: '⭐ Dagens utfordring: Si noe fint til en kollega ⭐', text: 'Spre litt ekstra glede – si noe hyggelig til en du jobber med!', images: []},
+        { number: 18, subtitle: 'MONIKAs REBUS', text: 'Klarer dere løse disse?', images: ['/images/monika/monika1.png', '/images/monika/monika2.png'] },
         {
           number: 19, subtitle: 'LOGO QUIZ', text: 'Hvem kjenner igjen flest?', images: [
             '/images/logo/logo1.png',
@@ -93,10 +108,38 @@ export default {
             '/images/logo/logo23.png'
           ] },
         { number: 20, subtitle: 'Toves familieoppskrift på rundstykker:', text: 'Denne oppskriften kommer fra min bestemor, og vi har alltid denne til julefrokosten!', images: ['/images/toves2.png', '/images/toves3.jpg'] },
-        { number: 21, text: 'Se på stjernene 🌟', images: [] },
-        { number: 22, text: 'Gi et smil 🙂', images: [] },
-        { number: 23, text: 'Lag et hjerte ❤️', images: [] },
-        { number: 24, text: 'GOD JUL 🎅🎄', images: [] }
+        { number: 21, subtitle: '4. Advent', images: ['/images/4advent.png'] },
+        {
+          number: 22, subtitle: 'Få inn litt bevegelse mellom julekake nr. 5 og kaffekopp nr. 3. Her er en økt som passer for alle!', content: `
+          <div class="video-wrapper">
+            <iframe
+              width="853"
+              height="480"
+              src="https://www.youtube.com/embed/_OyUpsoCuk4?list=RD_OyUpsoCuk4"
+              title="Trim for Eldre med Valborg Hagfeldt"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>`
+        },
+        {
+          number: 23, subtitle: ' ✨ La julefreden senke seg ✨', content: `
+            <div class="video-wrapper">
+              <iframe 
+                width="853" 
+                height="480"
+                src="https://www.youtube.com/embed/nt3Ggo1CE3g?list=RDnt3Ggo1CE3g"
+                title="Enya - May It Be (Official Lyric Video)"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+          `},
+        {
+          number: 24, subtitle: 'GOD JUL 🎅🎄', text: 'Siste luke er åpnet! 🎄 Tusen takk for deltakelse og hyggelige førjulsstunder. Ønsker dere en riktig god jul og vel fortjent ferie ✨', images: [] }
       ],
 
       shuffledDays: []
@@ -128,7 +171,7 @@ export default {
         this.openDays.push(day)
       }
 
-      // lagre i localStorage
+      //lagre i localStorage
       localStorage.setItem('openedDays', JSON.stringify(this.openDays))
     },
 
@@ -138,12 +181,14 @@ export default {
       this.activeText = luke?.text || ''
       this.activeSubtitle = luke?.subtitle || ''
       this.activeImages = luke?.images || []
+      this.activeContent = luke?.content || '' 
     },
 
     closeModal() {
       this.activeModalDay = null
       this.activeText = ''
       this.activeImages = []
+      this.activeContent = ''
     }
   }
 }

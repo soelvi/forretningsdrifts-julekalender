@@ -1,57 +1,47 @@
 <template>
   <div class="modal-overlay" @click.self="close">
 
-    <!-- GLITTER EXPLOSION -->
-    <div class="glitter-container" v-if="showGlitter">
-      <div v-for="n in 40" :key="n" class="glitter"></div>
-    </div>
-
     <!-- FULLSCREEN IMAGE -->
     <div v-if="fullscreen" class="fullscreen-overlay" @click="closeFullscreen">
       <img :src="images[currentIndex]" class="fullscreen-image" />
     </div>
 
-    <!-- MODAL -->
+    <!-- MODAL BOX -->
     <div class="modal-content">
-
-      <!-- CLOSE BUTTON -->
       <button class="close-btn" @click="close">×</button>
 
       <h2>Luke {{ day }}</h2>
-      <h3 class="modal-subtitle">{{ subtitle }}</h3>
-      <p>{{ text }}</p>
+      <h3 class="modal-subtitle" v-if="subtitle">{{ subtitle }}</h3>
+      <p v-if="text">{{ text }}</p>
+
+      <!-- VIDEO / HTML CONTENT -->
+      <div v-if="content" class="modal-html" v-html="content"></div>
 
       <!-- IMAGE VIEWER -->
       <div v-if="images && images.length" class="image-viewer" @touchstart="touchStart" @touchend="touchEnd">
-
-        <!-- PREV BUTTON (desktop only) -->
         <button v-if="images.length > 1" class="nav-btn prev" @click.stop="prevImage">‹</button>
 
         <img :src="images[currentIndex]" class="modal-image" @click="openFullscreen" />
 
-        <!-- NEXT BUTTON (desktop only) -->
         <button v-if="images.length > 1" class="nav-btn next" @click.stop="nextImage">›</button>
 
         <div class="image-counter">
           {{ currentIndex + 1 }} / {{ images.length }}
         </div>
       </div>
-
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, watch } from "vue";
 
 const props = defineProps({
   day: Number,
   subtitle: String,
   text: String,
-  images: {
-    type: Array,
-    default: () => []
-  }
+  content: String,
+  images: { type: Array, default: () => [] }
 });
 
 const emit = defineEmits(["close"]);
@@ -59,49 +49,33 @@ const emit = defineEmits(["close"]);
 const currentIndex = ref(0);
 const fullscreen = ref(false);
 
-// Glitter
-const showGlitter = ref(false);
-
+/* Reset når modal åpnes */
 watch(() => props.day, () => {
   currentIndex.value = 0;
   fullscreen.value = false;
-
-  // Trigger glitter burst
-  showGlitter.value = true;
-  setTimeout(() => (showGlitter.value = false), 1500);
 });
 
-/* FULLSCREEN */
-function openFullscreen() {
-  fullscreen.value = true;
-}
+/* FULLSCREEN IMAGE */
+function openFullscreen() { fullscreen.value = true; }
+function closeFullscreen() { fullscreen.value = false; }
 
-function closeFullscreen() {
-  fullscreen.value = false;
-}
-
-/* IMAGE NAVIGATION DESKTOP */
+/* BILDE-NAVIGASJON */
 function nextImage() {
   currentIndex.value = (currentIndex.value + 1) % props.images.length;
 }
 
 function prevImage() {
   currentIndex.value =
-    (currentIndex.value - 1 + props.images.length) %
-    props.images.length;
+    (currentIndex.value - 1 + props.images.length) % props.images.length;
 }
 
-/* SWIPE MOBILE */
+/* SWIPE */
 let startX = 0;
-
 function touchStart(e) {
   startX = e.changedTouches[0].clientX;
 }
-
 function touchEnd(e) {
   const diff = e.changedTouches[0].clientX - startX;
-
-  if (!props.images.length) return;
 
   if (diff > 60) prevImage();
   if (diff < -60) nextImage();
@@ -115,7 +89,7 @@ function close() {
 
 <style scoped>
 /* -------------------------------
-   OVERLAY 
+   OVERLAY
 --------------------------------*/
 .modal-overlay {
   position: fixed;
@@ -127,38 +101,44 @@ function close() {
   justify-content: center;
   z-index: 2000;
   animation: fadeIn 0.2s ease forwards;
+  overflow-x: hidden;
+  /* Hindrer scroll til siden */
 }
 
 /* -------------------------------
    MODAL BOX
 --------------------------------*/
 .modal-content {
-  width: 90%;
-  max-width: 700px;
-  max-height: 80vh;
+  width: 95%;
+  max-width: 900px;
+  /* bredere modal */
+  max-height: 85vh;
   padding: 2rem;
   background: #a57a5aed;
   border-radius: 16px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   overflow-y: auto;
+  overflow-x: hidden;
+  /* viktig: ingen scroll til siden */
   text-align: center;
   position: relative;
   animation: slideUp 0.25s ease forwards;
-  overflow: hidden;
-}
-
-.modal-content p {
-  color: var(--paper)
 }
 
 .modal-subtitle {
-  margin-top: 0.2rem;
-  margin-bottom: 0.2rem;
-  font-size: 1.5rem;
+  margin: 0.3rem 0;
+  font-size: 1.4rem;
   font-weight: 500;
-  color: var(--paper)
+  color: var(--paper);
 }
 
+.modal-content p {
+  color: var(--paper);
+}
+
+/* -------------------------------
+   CLOSE BUTTON
+--------------------------------*/
 .close-btn {
   position: absolute;
   top: 0.6rem;
@@ -168,6 +148,7 @@ function close() {
   font-size: 2rem;
   color: #fff9e6;
   cursor: pointer;
+  z-index: 10;
 }
 
 /* -------------------------------
@@ -193,9 +174,7 @@ function close() {
   opacity: 0.8;
 }
 
-/* -------------------------------
-   PREV/NEXT BUTTONS (desktop)
---------------------------------*/
+/* NAV BUTTONS */
 .nav-btn {
   position: absolute;
   top: 50%;
@@ -206,14 +185,9 @@ function close() {
   padding: 0 12px;
   cursor: pointer;
   border-radius: 8px;
-  color: #a57a5aed;
+  color: #a57a5a;
   backdrop-filter: blur(5px);
-  transition: background 0.2s;
   z-index: 5;
-}
-
-.nav-btn:hover {
-  background: rgba(255, 255, 255, 0.55);
 }
 
 .prev {
@@ -231,7 +205,7 @@ function close() {
 }
 
 /* -------------------------------
-   FULLSCREEN
+   FULLSCREEN IMAGE
 --------------------------------*/
 .fullscreen-overlay {
   position: fixed;
@@ -251,49 +225,24 @@ function close() {
 }
 
 /* -------------------------------
-   GLITTER EXPLOSION
+   VIDEO / HTML CONTENT
 --------------------------------*/
-.glitter-container {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 5000;
+.modal-html {
+  margin-top: 1.5rem;
+  width: 100%;
+  overflow: hidden;
+  /* hindrer horisontal scroll */
 }
 
-.glitter {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: white;
-  border-radius: 50%;
-  animation: glitterPop 1.2s ease-out forwards;
-  opacity: 0.8;
-}
-
-/* Random placement for explosion */
-.glitter:nth-child(n) {
-  left: 50%;
-  top: 50%;
-}
-
-/* Glitter animation */
-@keyframes glitterPop {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.9;
-  }
-
-  100% {
-    transform: translate(calc(-100px + 200px * var(--rx)),
-        calc(-100px + 200px * var(--ry))) scale(0);
-    opacity: 0;
-  }
-}
-
-/* Generate random directions */
-.glitter {
-  --rx: calc((random() - 0.5));
-  --ry: calc((random() - 0.5));
+.modal-html iframe {
+  width: 100% !important;
+  height: auto;
+  aspect-ratio: 16/9;
+  /* sørger for riktig proporsjon */
+  border: 0;
+  display: block;
+  border-radius: 12px;
+  background: black;
 }
 
 /* -------------------------------
@@ -301,24 +250,23 @@ function close() {
 --------------------------------*/
 @keyframes fadeIn {
   from {
-    opacity: 0
+    opacity: 0;
   }
 
   to {
-    opacity: 1
+    opacity: 1;
   }
 }
 
 @keyframes slideUp {
   from {
     transform: translateY(30px);
-    opacity: 0
+    opacity: 0;
   }
 
   to {
     transform: translateY(0);
-    opacity: 1
+    opacity: 1;
   }
 }
 </style>
-   
